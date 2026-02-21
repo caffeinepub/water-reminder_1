@@ -1,0 +1,359 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Water Reminder App - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement Home screen with daily water intake display, animated water level visualization in glass graphic, and remaining water amount",
+      "acceptanceCriteria": [
+        "Daily water intake displays current ml consumed and percentage of goal",
+        "Animated glass visualization fills proportionally to progress",
+        "Remaining water amount is clearly visible",
+        "All values update in real-time when water is added"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/DrinkWater.tsx",
+          "operation": "modify",
+          "description": "Replace the existing circular progress indicator with an animated water glass visualization that fills proportionally. Display consumed amount in ml, percentage progress, and remaining water amount prominently. Integrate the generated water glass image from frontend/public/assets/generated/water-glass.dim_128x128.png and frontend/public/assets/generated/water-glass-character.dim_256x256.png as static assets for the visualization. Ensure all values update reactively when water is logged."
+        },
+        {
+          "path": "frontend/src/components/WaterGlassVisualization.tsx",
+          "operation": "create",
+          "description": "Create a new component that renders an animated water glass using the generated image frontend/public/assets/generated/water-glass-character.dim_256x256.png. Implement CSS animations to fill the glass proportionally based on the progress percentage prop. Include smooth transitions and use glassmorphism effects consistent with the app theme."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add large prominent Add Water button and quick action buttons for preset drink sizes on Home screen",
+      "acceptanceCriteria": [
+        "Large Add Water button is prominently displayed",
+        "Multiple quick action buttons show common drink sizes",
+        "Clicking quick action buttons immediately logs that amount",
+        "Visual feedback confirms successful logging"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/DrinkWater.tsx",
+          "operation": "modify",
+          "description": "Add a large prominent Add Water button below the water glass visualization. Create quick action buttons for preset drink sizes (250ml, 500ml, 750ml) that immediately log water intake when clicked. Implement visual feedback (toast notifications or button animations) to confirm successful logging. Use the blue gradient theme and ensure buttons have proper hover and active states."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create smart reminders system with custom time picker, configurable auto-reminders at intervals, and wake-up/sleep schedule configuration",
+      "acceptanceCriteria": [
+        "Users can set custom reminder times with AM/PM picker",
+        "Auto-reminder intervals can be configured (1h, 2h, etc.)",
+        "Wake-up and sleep times can be set",
+        "Reminders respect the configured schedule"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Reminders.tsx",
+          "operation": "modify",
+          "description": "Enhance the reminders page to support AM/PM time format in the time picker. Add UI controls for configuring auto-reminder intervals (every 1 hour, 2 hours, etc.). The wake-up and sleep schedule configuration should link to the AdvancedSettings page where these times are already managed."
+        },
+        {
+          "path": "frontend/src/components/ReminderCard.tsx",
+          "operation": "modify",
+          "description": "Update the time picker to display and accept AM/PM format instead of 24-hour format. Ensure the time conversion logic properly handles AM/PM to minutes-since-midnight conversion for backend storage."
+        },
+        {
+          "path": "frontend/src/pages/AdvancedSettings.tsx",
+          "operation": "modify",
+          "description": "Ensure wake-up and sleep time inputs use AM/PM format for consistency. Add a section for configuring auto-reminder intervals with preset options (1h, 2h, 3h, 4h)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement night mode feature that automatically mutes reminders during sleep hours with toggle controls for sound, vibration, and notification preferences",
+      "acceptanceCriteria": [
+        "Reminders are muted during sleep hours when night mode is enabled",
+        "Individual toggles control sound, vibration, and notifications",
+        "Settings persist across sessions",
+        "Night mode status is clearly indicated in UI"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdvancedSettings.tsx",
+          "operation": "modify",
+          "description": "Ensure the night mode section clearly indicates when night mode is active. Add visual feedback showing the current sleep hours and mute status. Ensure all settings (sound, vibration, notifications) are persisted via the backend setNightMode mutation."
+        },
+        {
+          "path": "frontend/src/hooks/useReminders.ts",
+          "operation": "modify",
+          "description": "Update the reminder logic to check night mode status and mute reminders during configured sleep hours. Respect individual sound and vibration toggles. Ensure the hook properly reads night mode settings from the backend data."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Design and implement reminder popup UI displaying configured reminder times with enable/disable toggles and Reminder Settings button",
+      "acceptanceCriteria": [
+        "Popup displays all active reminders in a clean list",
+        "Each reminder has its own enable/disable toggle",
+        "Reminder Settings button navigates to detailed settings page",
+        "Popup design matches app's glassmorphism style"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ReminderPopup.tsx",
+          "operation": "create",
+          "description": "Create a modal popup component displaying all configured reminders in a list format. Each reminder shows time in AM/PM format with an enable/disable toggle switch. Include a Reminder Settings button at the bottom that navigates to the full Reminders page. Apply glassmorphism effects, blue gradient theme, rounded corners (20dp), and smooth shadows (6dp) consistent with the design system."
+        },
+        {
+          "path": "frontend/src/pages/DrinkWater.tsx",
+          "operation": "modify",
+          "description": "Add a button or icon on the Home screen (e.g., bell icon in the header) that opens the ReminderPopup component. Wire the popup to display reminder data from the useReminders query hook."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create Drink Log screen showing daily water intake history as timeline list with timestamps and amounts",
+      "acceptanceCriteria": [
+        "All water intake entries are displayed chronologically",
+        "Each entry shows timestamp and amount consumed",
+        "Timeline format is clear and easy to read",
+        "Today's entries are prominently grouped"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/DrinkLog.tsx",
+          "operation": "modify",
+          "description": "Ensure the drink log displays entries in reverse chronological order (most recent first). Enhance the timeline format with clear visual separators between dates. Highlight today's entries with a distinct background or border. Use the DrinkEntryCard component for individual entries and ensure proper spacing and typography hierarchy."
+        },
+        {
+          "path": "frontend/src/components/DrinkEntryCard.tsx",
+          "operation": "modify",
+          "description": "Enhance the card to display timestamp in user-friendly format (e.g., '10:30 AM' or 'HH:MM') and amount with unit (ml/oz). Apply glassmorphism effects, rounded corners (20dp), and smooth shadows (6dp) consistent with the design system."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build Reports screen with daily, weekly, and monthly statistics including visual graphs, progress bars, and aggregated data",
+      "acceptanceCriteria": [
+        "Reports display daily, weekly, and monthly views",
+        "Charts visualize intake trends over time",
+        "Progress bars show goal achievement rates",
+        "Statistics include averages and totals"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Reports.tsx",
+          "operation": "modify",
+          "description": "Enhance the Reports page to display daily statistics alongside weekly and monthly views. Add progress bars showing goal achievement percentages for each time period. Include aggregated statistics such as average daily intake and total consumption. Ensure charts use the WaterChart component with proper theme-aware styling and blue gradient colors."
+        },
+        {
+          "path": "frontend/src/components/WaterChart.tsx",
+          "operation": "modify",
+          "description": "Enhance the chart to support daily view in addition to weekly and monthly periods. Apply blue gradient colors (#42A5F5 to #1565C0) to chart bars. Ensure proper responsive sizing and theme-aware styling for both light and dark modes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Design Health Benefits screen displaying water consumption benefits with icons and visual progress indicators",
+      "acceptanceCriteria": [
+        "Five health benefits are clearly listed with icons",
+        "Each benefit has descriptive text",
+        "Progress indicators show relationship to hydration level",
+        "Design uses card-based layout with proper spacing"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HealthBenefits.tsx",
+          "operation": "create",
+          "description": "Create a new Health Benefits page displaying five health benefits: Better Digestion, Improved Concentration, Strong Immune System, Better Skin, and More Energy. Use the generated health icons from frontend/public/assets/generated/health-icons-set.dim_512x512.png (split into individual icons for each benefit). Each benefit card should include an icon, title, descriptive text, and a progress indicator that relates to current hydration level. Apply card-based layout with glassmorphism effects, rounded corners (20dp), smooth shadows (6dp), and proper spacing using the blue gradient theme."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a new route for the Health Benefits page at '/health-benefits' and register it in the router configuration. Ensure the route is accessible from the navigation drawer."
+        },
+        {
+          "path": "frontend/src/components/NavigationDrawer.tsx",
+          "operation": "modify",
+          "description": "Add a menu item for Health Benefits in the navigation drawer with appropriate icon and active route highlighting. Position it logically in the menu order (e.g., after Reports and before Reminders)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Implement Settings screen for changing daily water target, reminders, sound, theme, and units",
+      "acceptanceCriteria": [
+        "Daily water target is adjustable with validation",
+        "Global reminder toggle affects all reminders",
+        "Multiple reminder sounds are available for selection",
+        "Light/Dark theme toggle works throughout app",
+        "Unit conversion between ml and oz is accurate"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Settings.tsx",
+          "operation": "modify",
+          "description": "Add controls for changing the daily water target with input validation (minimum/maximum values). Implement a global reminder enable/disable toggle that affects all reminders. Ensure the theme toggle (Light/Dark/System) is prominently displayed and functional. Verify unit conversion logic between ml and oz is accurate throughout the app."
+        },
+        {
+          "path": "frontend/src/pages/AdvancedSettings.tsx",
+          "operation": "modify",
+          "description": "Ensure the reminder sound selector offers multiple sound options. Verify all settings are persisted to the backend via the setAdvancedSettings mutation and properly retrieved on page load."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create side drawer navigation menu with links to all screens and active route highlighting",
+      "acceptanceCriteria": [
+        "Drawer menu contains all five main navigation items",
+        "Active route is visually highlighted",
+        "Drawer can be opened and closed smoothly",
+        "Navigation works from any screen"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/NavigationDrawer.tsx",
+          "operation": "modify",
+          "description": "Ensure the navigation drawer includes links to all main screens: Home (DrinkWater), Drink Log, Reports, Health Benefits, Reminders, and Settings. Verify active route highlighting works correctly. Ensure smooth open/close animations and that the drawer is accessible from all pages via a hamburger menu icon or similar trigger."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Apply comprehensive design system with blue gradient theme, Light/Dark modes, glassmorphism, rounded corners, and modern card layouts",
+      "acceptanceCriteria": [
+        "All screens use blue gradient color scheme with specified hex values",
+        "Light and Dark modes are fully implemented and switchable",
+        "Glassmorphism effects applied to overlays and cards",
+        "All cards have 20dp rounded corners and 6dp shadows",
+        "Design is consistent across all screens"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update CSS variables to use the specified blue gradient colors (#42A5F5 light blue to #1565C0 dark blue) as primary theme colors. Ensure Light and Dark mode color palettes are defined using these colors. Add utility classes for glassmorphism effects, 20dp rounded corners (border-radius: 1.25rem), and 6dp shadows (box-shadow with appropriate elevation). Verify the theme colors are applied consistently across all components."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Update Tailwind configuration to include custom colors for the blue gradient theme (#42A5F5 and #1565C0). Add custom border radius utilities for 20dp (rounded-xl or rounded-[20px]). Configure custom shadow utilities for 6dp elevation. Ensure theme colors support both light and dark modes."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Update the Layout component to use the blue gradient theme colors for the background gradient. Ensure the wave pattern backgrounds use the generated images frontend/public/assets/generated/wave-light.dim_1200x400.png and frontend/public/assets/generated/wave-dark.dim_1200x400.png as static assets. Apply proper theme-aware styling for both light and dark modes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Implement smooth animations and transitions for all interactive elements",
+      "acceptanceCriteria": [
+        "All page transitions are smooth",
+        "Button interactions have hover and click animations",
+        "Drawer opens and closes with smooth animation",
+        "Water level animation is fluid and responsive",
+        "No janky or abrupt UI changes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Add custom animation configurations for smooth transitions including page transitions, button interactions, and drawer animations. Define transition durations and easing functions consistent with modern UI standards."
+        },
+        {
+          "path": "frontend/src/components/WaterGlassVisualization.tsx",
+          "operation": "modify",
+          "description": "Implement smooth CSS animations for the water level filling effect. Use transform and transition properties for fluid animation that responds to progress changes without abrupt jumps."
+        },
+        {
+          "path": "frontend/src/components/NavigationDrawer.tsx",
+          "operation": "modify",
+          "description": "Add smooth slide-in and slide-out animations for drawer opening and closing. Use CSS transitions or Framer Motion for fluid animations with appropriate easing curves."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add global transition utilities for button hover and active states. Define consistent animation timings for all interactive elements. Ensure animations respect user preferences for reduced motion (prefers-reduced-motion media query)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Remove all external branding including Caffeine AI references from the application interface",
+      "acceptanceCriteria": [
+        "No Caffeine AI branding appears anywhere in the UI",
+        "App uses only its own branding",
+        "All references to external tools are removed"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/NavigationDrawer.tsx",
+          "operation": "modify",
+          "description": "Remove any references to Caffeine AI or external branding from the drawer header. Use the app's own branding with the generated app logo from frontend/public/assets/generated/app-logo.dim_256x256.png if present in the header."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update the HTML title, meta tags, and favicon to reflect the Hydrate app branding. Remove any references to Caffeine AI or other external tools. Ensure the app name is consistently 'Hydrate'."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Ensure application works completely offline without login, storing all data locally",
+      "acceptanceCriteria": [
+        "App functions without internet connection",
+        "No login or authentication screens exist",
+        "All data persists locally in browser storage",
+        "No network requests are required for core functionality"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useInternetIdentity.ts",
+          "operation": "modify",
+          "description": "Remove or disable the Internet Identity authentication flow. Ensure the app functions without requiring login. Use a default local user ID (e.g., userId: 1n) for all backend queries and mutations to support offline operation with local storage."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Remove the InternetIdentity provider wrapper if it forces authentication. Ensure the app initializes without requiring network requests or login."
+        },
+        {
+          "path": "frontend/src/hooks/useActor.ts",
+          "operation": "modify",
+          "description": "Modify the actor hook to work with a default anonymous identity or local-only mode. Ensure backend calls are configured to use local storage fallback when offline."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Apply clean typography with proper hierarchy and consistent spacing throughout the application",
+      "acceptanceCriteria": [
+        "Typography hierarchy is clear and consistent",
+        "Spacing follows a consistent scale",
+        "Text is readable in both light and dark modes",
+        "Font sizes are appropriate for each element type"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define a clear typography scale with consistent font sizes for headings (h1-h6), body text, captions, and labels. Ensure proper font weights and line heights for readability. Add spacing utilities that follow a consistent scale (e.g., 4px base unit). Verify text colors have sufficient contrast in both light and dark modes for accessibility."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Configure custom font families and typography scale in Tailwind. Define spacing scale and ensure it's used consistently throughout components. Add custom font size and line height utilities if needed."
+        }
+      ]
+    }
+  ]
+}

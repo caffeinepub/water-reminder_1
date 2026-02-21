@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Water Reminder App - A modern, professional offline water tracking app with blue gradient theme, dark/light mode support, smart reminders, drink logging, statistics, and health benefits information",
+  "architectural_notes": [
+    "Blue gradient theme with light/dark mode support",
+    "Glassmorphism and card-based UI with rounded corners and shadows",
+    "Fully offline - no login or authentication required",
+    "AlarmManager for interval-based reminders",
+    "NotificationCompat for water reminder notifications",
+    "Local data persistence for drink logs and settings"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Water droplet icon in blue gradient with glossy finish (water-icon.dim_128x128.png)\n- Animated water glass illustration showing empty to full states in blue gradient (water-glass.dim_256x256.png)\n- Health benefit icons set: digestion, brain, immune system, skin, and energy in minimal blue style (health-icons-set.dim_512x512.png)\n- App logo featuring stylized water wave in blue gradient (app-logo.dim_256x256.png)",
+  "existing_features": [
+    {
+      "id": "feature-implement-home-screen-with-daily-water-intake-display-showing-consumed-amount-in-ml-percentage-progress-remaining-water-amount-and-an-animated-water-level-visualization-inside-a-glass-graphic-that-fills-according-to-progress-percentage",
+      "title": "Implement Home screen with daily water intake display showing consumed amount in ml, percentage progress, remaining water amount, and an animated water level visualization inside a glass graphic that fills according to progress percentage",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-large-prominent-add-water-button-and-quick-action-buttons-for-preset-drink-sizes-e-g-250ml-500ml-750ml-on-the-home-screen-for-rapid-water-logging",
+      "title": "Add large prominent 'Add Water' button and quick action buttons for preset drink sizes (e.g., 250ml, 500ml, 750ml) on the Home screen for rapid water logging",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-smart-reminders-system-with-custom-time-picker-supporting-am-pm-format-configurable-auto-reminders-at-intervals-1-hour-2-hours-etc-and-wake-up-sleep-schedule-configuration",
+      "title": "Create smart reminders system with custom time picker supporting AM/PM format, configurable auto-reminders at intervals (1 hour, 2 hours, etc.), and wake-up/sleep schedule configuration",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-night-mode-feature-that-automatically-mutes-reminders-during-configured-sleep-hours-with-toggle-controls-for-sound-vibration-and-notification-preferences",
+      "title": "Implement night mode feature that automatically mutes reminders during configured sleep hours, with toggle controls for sound, vibration, and notification preferences",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-and-implement-reminder-popup-ui-displaying-a-list-of-all-configured-reminder-times-with-enable-disable-toggle-for-each-individual-reminder-and-a-reminder-settings-button-linking-to-full-settings",
+      "title": "Design and implement reminder popup UI displaying a list of all configured reminder times with enable/disable toggle for each individual reminder and a 'Reminder Settings' button linking to full settings",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-health-benefits-screen-displaying-water-consumption-benefits-including-better-digestion-improved-concentration-strong-immune-system-better-skin-and-more-energy-with-icons-and-visual-progress-indicators-for-each-benefit",
+      "title": "Design Health Benefits screen displaying water consumption benefits including better digestion, improved concentration, strong immune system, better skin, and more energy, with icons and visual progress indicators for each benefit",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-settings-screen-allowing-users-to-change-daily-water-target-enable-disable-reminders-globally-select-reminder-sound-toggle-between-light-and-dark-theme-modes-and-switch-units-between-ml-and-oz",
+      "title": "Implement Settings screen allowing users to change daily water target, enable/disable reminders globally, select reminder sound, toggle between Light and Dark theme modes, and switch units between ml and oz",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-side-drawer-navigation-menu-with-links-to-home-drink-log-reports-reminders-and-settings-screens-with-active-route-highlighting",
+      "title": "Create side drawer navigation menu with links to Home, Drink Log, Reports, Reminders, and Settings screens with active route highlighting",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-comprehensive-design-system-with-blue-gradient-theme-light-blue-42a5f5-to-dark-blue-1565c0-supporting-both-light-and-dark-modes-using-soft-gradients-glassmorphism-effects-rounded-corners-20dp-smooth-shadows-6dp-elevation-and-modern-card-based-layouts-throughout-the-application",
+      "title": "Apply comprehensive design system with blue gradient theme (light blue #42A5F5 to dark blue #1565C0), supporting both Light and Dark modes, using soft gradients, glassmorphism effects, rounded corners (20dp), smooth shadows (6dp elevation), and modern card-based layouts throughout the application",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-smooth-animations-and-transitions-for-all-interactive-elements-including-page-transitions-button-clicks-drawer-opening-closing-and-water-level-filling-animation",
+      "title": "Implement smooth animations and transitions for all interactive elements including page transitions, button clicks, drawer opening/closing, and water level filling animation",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-external-branding-including-any-references-to-caffeine-ai-name-from-the-application-interface",
+      "title": "Remove all external branding including any references to Caffeine AI name from the application interface",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-clean-typography-with-proper-hierarchy-and-consistent-spacing-throughout-the-application-following-modern-design-principles",
+      "title": "Apply clean typography with proper hierarchy and consistent spacing throughout the application following modern design principles",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Home screen with daily water intake tracking, animated glass, and quick action buttons",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Smart reminders system with custom times, auto-intervals, wake/sleep schedule, and night mode",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Reminder popup UI with time list and enable/disable toggles",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Drink log screen showing daily water history timeline",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Reports screen with daily/weekly/monthly statistics and graphs",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Health benefits screen with icons and progress indicators",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Settings screen for water target, reminders, sound, theme, and units",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Side drawer navigation menu with all main screens",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Create Drink Log screen showing daily water intake history as a timeline list of drinking events with timestamps and amounts",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Build Reports screen with daily, weekly, and monthly statistics including visual graphs, progress bars, and aggregated data showing water intake patterns",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Ensure application works completely offline without requiring any login or authentication system, storing all data locally",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Water Reminder App",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

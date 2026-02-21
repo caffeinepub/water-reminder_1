@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode - Blue gradient theme */
+    --background: oklch(98% 0.01 240);
+    --foreground: oklch(20% 0.02 240);
+    --card: oklch(100% 0 0);
+    --card-foreground: oklch(20% 0.02 240);
+    --popover: oklch(100% 0 0);
+    --popover-foreground: oklch(20% 0.02 240);
+    --primary: oklch(60% 0.15 240);
+    --primary-foreground: oklch(100% 0 0);
+    --secondary: oklch(55% 0.12 220);
+    --secondary-foreground: oklch(100% 0 0);
+    --muted: oklch(96% 0.01 240);
+    --muted-foreground: oklch(50% 0.02 240);
+    --accent: oklch(70% 0.13 200);
+    --accent-foreground: oklch(100% 0 0);
+    --destructive: oklch(60% 0.22 25);
+    --destructive-foreground: oklch(100% 0 0);
+    --border: oklch(90% 0.01 240);
+    --input: oklch(90% 0.01 240);
+    --ring: oklch(60% 0.15 240);
+    --radius: 1.25rem;
+    
+    /* Blue gradient colors */
+    --gradient-start: oklch(75% 0.15 220);
+    --gradient-mid: oklch(65% 0.15 230);
+    --gradient-end: oklch(55% 0.15 240);
+    
+    /* Light blue accent */
+    --light-blue: oklch(75% 0.12 220);
+    --dark-blue: oklch(45% 0.15 240);
+  }
+
+  .dark {
+    /* Dark mode - Deep blue ocean theme */
+    --background: oklch(18% 0.04 240);
+    --foreground: oklch(95% 0.01 240);
+    --card: oklch(22% 0.05 240);
+    --card-foreground: oklch(95% 0.01 240);
+    --popover: oklch(22% 0.05 240);
+    --popover-foreground: oklch(95% 0.01 240);
+    --primary: oklch(65% 0.16 230);
+    --primary-foreground: oklch(98% 0.01 240);
+    --secondary: oklch(60% 0.14 220);
+    --secondary-foreground: oklch(98% 0.01 240);
+    --muted: oklch(28% 0.04 240);
+    --muted-foreground: oklch(65% 0.02 240);
+    --accent: oklch(70% 0.14 210);
+    --accent-foreground: oklch(98% 0.01 240);
+    --destructive: oklch(60% 0.22 25);
+    --destructive-foreground: oklch(100% 0 0);
+    --border: oklch(32% 0.04 240);
+    --input: oklch(32% 0.04 240);
+    --ring: oklch(65% 0.16 230);
+    
+    /* Dark gradient colors */
+    --gradient-dark-start: oklch(25% 0.06 230);
+    --gradient-dark-mid: oklch(22% 0.05 235);
+    --gradient-dark-end: oklch(20% 0.04 240);
+    
+    /* Dark blue accent */
+    --light-blue: oklch(70% 0.14 220);
+    --dark-blue: oklch(50% 0.16 240);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+  }
+  
+  h1 { @apply text-3xl md:text-4xl; }
+  h2 { @apply text-2xl md:text-3xl; }
+  h3 { @apply text-xl md:text-2xl; }
+  h4 { @apply text-lg md:text-xl; }
+}
+
+@layer components {
+  /* Modern card styling with glassmorphism */
+  .card-modern {
+    @apply bg-card/90 backdrop-blur-xl border-border shadow-soft rounded-[20px] transition-all duration-300 hover:shadow-soft-lg;
+  }
+  
+  /* Button variants */
+  .btn-primary {
+    @apply bg-gradient-to-r from-[oklch(65%_0.15_230)] to-[oklch(55%_0.15_240)] hover:from-[oklch(60%_0.15_230)] hover:to-[oklch(50%_0.15_240)] text-white font-semibold shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98];
+  }
+  
+  .btn-primary-large {
+    @apply bg-gradient-to-r from-[oklch(70%_0.14_220)] to-[oklch(55%_0.15_240)] hover:from-[oklch(65%_0.14_220)] hover:to-[oklch(50%_0.15_240)] text-white font-bold shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.05] active:scale-[0.98] rounded-[20px] px-8 py-4;
+  }
+  
+  /* Wave pattern background */
+  .wave-pattern {
+    @apply fixed inset-0 pointer-events-none opacity-5;
+    background-image: url('/assets/generated/wave-light.dim_1200x400.png');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: 1200px 400px;
+    z-index: 0;
+  }
+  
+  .dark .wave-pattern {
+    background-image: url('/assets/generated/wave-dark.dim_1200x400.png');
+    opacity: 0.03;
+  }
+  
+  /* Glassmorphism effect */
+  .glass {
+    @apply bg-card/70 backdrop-blur-2xl border border-border/50 shadow-soft;
+  }
+}
+
+@layer utilities {
+  /* Smooth animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-water-fill {
+    animation: waterFill 1.5s ease-out forwards;
+  }
+  
+  @keyframes waterFill {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-[oklch(70%_0.14_220)] to-[oklch(55%_0.15_240)] bg-clip-text text-transparent;
+  }
+  
+  /* Water wave animation */
+  @keyframes wave {
+    0%, 100% {
+      transform: translateX(0) translateY(0);
+    }
+    50% {
+      transform: translateX(-25%) translateY(-5px);
+    }
+  }
+  
+  .animate-wave {
+    animation: wave 3s ease-in-out infinite;
+  }
+}
+
+/* Progress bar custom styling */
+[data-state="complete"] {
+  @apply bg-gradient-to-r from-[oklch(70%_0.14_220)] to-[oklch(55%_0.15_240)];
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/40 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/60;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-primary/20 text-foreground;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Disable transitions for animations and transforms */
+*:where([class*="animate-"], [class*="transition-transform"]) {
+  transition-property: transform, opacity;
+}

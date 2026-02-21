@@ -1,0 +1,234 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-home-screen-with-daily-water-intake-display-showing-consumed-amount-in-ml-percentage-progress-remaining-water-amount-and-an-animated-water-level-visualization-inside-a-glass-graphic-that-fills-according-to-progress-percentage",
+      "featureTitle": "Implement Home screen with daily water intake display showing consumed amount in ml, percentage progress, remaining water amount, and an animated water level visualization inside a glass graphic that fills according to progress percentage",
+      "files": [
+        "frontend/src/components/WaterGlassVisualization.tsx",
+        "frontend/src/pages/DrinkWater.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-large-prominent-add-water-button-and-quick-action-buttons-for-preset-drink-sizes-e-g-250ml-500ml-750ml-on-the-home-screen-for-rapid-water-logging",
+      "featureTitle": "Add large prominent 'Add Water' button and quick action buttons for preset drink sizes (e.g., 250ml, 500ml, 750ml) on the Home screen for rapid water logging",
+      "files": [
+        "frontend/src/pages/DrinkWater.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-smart-reminders-system-with-custom-time-picker-supporting-am-pm-format-configurable-auto-reminders-at-intervals-1-hour-2-hours-etc-and-wake-up-sleep-schedule-configuration",
+      "featureTitle": "Create smart reminders system with custom time picker supporting AM/PM format, configurable auto-reminders at intervals (1 hour, 2 hours, etc.), and wake-up/sleep schedule configuration",
+      "files": [
+        "frontend/src/components/ReminderCard.tsx",
+        "frontend/src/pages/AdvancedSettings.tsx",
+        "frontend/src/pages/Reminders.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-night-mode-feature-that-automatically-mutes-reminders-during-configured-sleep-hours-with-toggle-controls-for-sound-vibration-and-notification-preferences",
+      "featureTitle": "Implement night mode feature that automatically mutes reminders during configured sleep hours, with toggle controls for sound, vibration, and notification preferences",
+      "files": [
+        "frontend/src/pages/AdvancedSettings.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-and-implement-reminder-popup-ui-displaying-a-list-of-all-configured-reminder-times-with-enable-disable-toggle-for-each-individual-reminder-and-a-reminder-settings-button-linking-to-full-settings",
+      "featureTitle": "Design and implement reminder popup UI displaying a list of all configured reminder times with enable/disable toggle for each individual reminder and a 'Reminder Settings' button linking to full settings",
+      "files": [
+        "frontend/src/components/ReminderPopup.tsx",
+        "frontend/src/pages/DrinkWater.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-health-benefits-screen-displaying-water-consumption-benefits-including-better-digestion-improved-concentration-strong-immune-system-better-skin-and-more-energy-with-icons-and-visual-progress-indicators-for-each-benefit",
+      "featureTitle": "Design Health Benefits screen displaying water consumption benefits including better digestion, improved concentration, strong immune system, better skin, and more energy, with icons and visual progress indicators for each benefit",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/NavigationDrawer.tsx",
+        "frontend/src/pages/HealthBenefits.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-settings-screen-allowing-users-to-change-daily-water-target-enable-disable-reminders-globally-select-reminder-sound-toggle-between-light-and-dark-theme-modes-and-switch-units-between-ml-and-oz",
+      "featureTitle": "Implement Settings screen allowing users to change daily water target, enable/disable reminders globally, select reminder sound, toggle between Light and Dark theme modes, and switch units between ml and oz",
+      "files": [
+        "frontend/src/pages/AdvancedSettings.tsx",
+        "frontend/src/pages/Settings.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-side-drawer-navigation-menu-with-links-to-home-drink-log-reports-reminders-and-settings-screens-with-active-route-highlighting",
+      "featureTitle": "Create side drawer navigation menu with links to Home, Drink Log, Reports, Reminders, and Settings screens with active route highlighting",
+      "files": [
+        "frontend/src/components/NavigationDrawer.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-comprehensive-design-system-with-blue-gradient-theme-light-blue-42a5f5-to-dark-blue-1565c0-supporting-both-light-and-dark-modes-using-soft-gradients-glassmorphism-effects-rounded-corners-20dp-smooth-shadows-6dp-elevation-and-modern-card-based-layouts-throughout-the-application",
+      "featureTitle": "Apply comprehensive design system with blue gradient theme (light blue #42A5F5 to dark blue #1565C0), supporting both Light and Dark modes, using soft gradients, glassmorphism effects, rounded corners (20dp), smooth shadows (6dp elevation), and modern card-based layouts throughout the application",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-smooth-animations-and-transitions-for-all-interactive-elements-including-page-transitions-button-clicks-drawer-opening-closing-and-water-level-filling-animation",
+      "featureTitle": "Implement smooth animations and transitions for all interactive elements including page transitions, button clicks, drawer opening/closing, and water level filling animation",
+      "files": [
+        "frontend/src/components/NavigationDrawer.tsx",
+        "frontend/src/components/WaterGlassVisualization.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-remove-all-external-branding-including-any-references-to-caffeine-ai-name-from-the-application-interface",
+      "featureTitle": "Remove all external branding including any references to Caffeine AI name from the application interface",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/components/NavigationDrawer.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-clean-typography-with-proper-hierarchy-and-consistent-spacing-throughout-the-application-following-modern-design-principles",
+      "featureTitle": "Apply clean typography with proper hierarchy and consistent spacing throughout the application following modern design principles",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

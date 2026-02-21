@@ -1,0 +1,343 @@
+{
+  "kind": "build_request",
+  "title": "Build Water Reminder App with offline functionality and comprehensive features",
+  "projectName": "Hydrate",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement Home screen with daily water intake display showing consumed amount in ml, percentage progress, remaining water amount, and an animated water level visualization inside a glass graphic that fills according to progress percentage",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Show daily water intake (ml and percentage)",
+          "Animated water level inside a glass",
+          "Remaining water amount"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Daily water intake displays current ml consumed and percentage of goal",
+        "Animated glass visualization fills proportionally to progress",
+        "Remaining water amount is clearly visible",
+        "All values update in real-time when water is added"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add large prominent 'Add Water' button and quick action buttons for preset drink sizes (e.g., 250ml, 500ml, 750ml) on the Home screen for rapid water logging",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Large \"Add Water\" button",
+          "Quick action buttons for different drink sizes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Large Add Water button is prominently displayed",
+        "Multiple quick action buttons show common drink sizes",
+        "Clicking quick action buttons immediately logs that amount",
+        "Visual feedback confirms successful logging"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create smart reminders system with custom time picker supporting AM/PM format, configurable auto-reminders at intervals (1 hour, 2 hours, etc.), and wake-up/sleep schedule configuration",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Custom reminders with time picker (AM/PM)",
+          "Auto reminders at intervals (every 1 hour, 2 hours, etc.)",
+          "Wake-up and sleep schedule"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can set custom reminder times with AM/PM picker",
+        "Auto-reminder intervals can be configured (1h, 2h, etc.)",
+        "Wake-up and sleep times can be set",
+        "Reminders respect the configured schedule"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement night mode feature that automatically mutes reminders during configured sleep hours, with toggle controls for sound, vibration, and notification preferences",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Night mode (mute reminders during sleep)",
+          "Sound, vibration, and notification toggle"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Reminders are muted during sleep hours when night mode is enabled",
+        "Individual toggles control sound, vibration, and notifications",
+        "Settings persist across sessions",
+        "Night mode status is clearly indicated in UI"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Design and implement reminder popup UI displaying a list of all configured reminder times with enable/disable toggle for each individual reminder and a 'Reminder Settings' button linking to full settings",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Beautiful popup with list of times",
+          "Enable/disable each reminder",
+          "\"Reminder Settings\" button"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Popup displays all active reminders in a clean list",
+        "Each reminder has its own enable/disable toggle",
+        "Reminder Settings button navigates to detailed settings page",
+        "Popup design matches app's glassmorphism style"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create Drink Log screen showing daily water intake history as a timeline list of drinking events with timestamps and amounts",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Show daily water history",
+          "Timeline list of drinking events"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All water intake entries are displayed chronologically",
+        "Each entry shows timestamp and amount consumed",
+        "Timeline format is clear and easy to read",
+        "Today's entries are prominently grouped"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Build Reports screen with daily, weekly, and monthly statistics including visual graphs, progress bars, and aggregated data showing water intake patterns",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Daily, weekly, and monthly statistics",
+          "Graphs and progress bars"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Reports display daily, weekly, and monthly views",
+        "Charts visualize intake trends over time",
+        "Progress bars show goal achievement rates",
+        "Statistics include averages and totals"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Design Health Benefits screen displaying water consumption benefits including better digestion, improved concentration, strong immune system, better skin, and more energy, with icons and visual progress indicators for each benefit",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Better digestion",
+          "Improved concentration",
+          "Strong immune system",
+          "Better skin",
+          "More energy",
+          "Use icons and progress bars"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Five health benefits are clearly listed with icons",
+        "Each benefit has descriptive text",
+        "Progress indicators show relationship to hydration level",
+        "Design uses card-based layout with proper spacing"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Implement Settings screen allowing users to change daily water target, enable/disable reminders globally, select reminder sound, toggle between Light and Dark theme modes, and switch units between ml and oz",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Change daily water target",
+          "Enable/disable reminders",
+          "Select reminder sound",
+          "Theme switch (Light / Dark)",
+          "Units (ml / oz)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Daily water target is adjustable with validation",
+        "Global reminder toggle affects all reminders",
+        "Multiple reminder sounds are available for selection",
+        "Light/Dark theme toggle works throughout app",
+        "Unit conversion between ml and oz is accurate"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create side drawer navigation menu with links to Home, Drink Log, Reports, Reminders, and Settings screens with active route highlighting",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Side drawer menu with: Home, Drink Log, Reports, Reminders, Settings"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Drawer menu contains all five main navigation items",
+        "Active route is visually highlighted",
+        "Drawer can be opened and closed smoothly",
+        "Navigation works from any screen"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Apply comprehensive design system with blue gradient theme (light blue #42A5F5 to dark blue #1565C0), supporting both Light and Dark modes, using soft gradients, glassmorphism effects, rounded corners (20dp), smooth shadows (6dp elevation), and modern card-based layouts throughout the application",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Primary theme color: Blue gradient (light blue to dark blue)",
+          "Support both Light Mode and Dark Mode",
+          "Use soft gradients, glassmorphism, and modern card-based layouts",
+          "Rounded corners, smooth shadows, and minimal icons"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All screens use blue gradient color scheme with specified hex values",
+        "Light and Dark modes are fully implemented and switchable",
+        "Glassmorphism effects applied to overlays and cards",
+        "All cards have 20dp rounded corners and 6dp shadows",
+        "Design is consistent across all screens"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Implement smooth animations and transitions for all interactive elements including page transitions, button clicks, drawer opening/closing, and water level filling animation",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Smooth animations and transitions"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All page transitions are smooth",
+        "Button interactions have hover and click animations",
+        "Drawer opens and closes with smooth animation",
+        "Water level animation is fluid and responsive",
+        "No janky or abrupt UI changes"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Remove all external branding including any references to Caffeine AI name from the application interface",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "No external branding (remove Caffeine AI name)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "No Caffeine AI branding appears anywhere in the UI",
+        "App uses only its own branding",
+        "All references to external tools are removed"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Ensure application works completely offline without requiring any login or authentication system, storing all data locally",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "No login system",
+          "Fully offline functionality"
+        ]
+      },
+      "acceptanceCriteria": [
+        "App functions without internet connection",
+        "No login or authentication screens exist",
+        "All data persists locally in browser storage",
+        "No network requests are required for core functionality"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Apply clean typography with proper hierarchy and consistent spacing throughout the application following modern design principles",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Clean typography and spacing"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Typography hierarchy is clear and consistent",
+        "Spacing follows a consistent scale",
+        "Text is readable in both light and dark modes",
+        "Font sizes are appropriate for each element type"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not implement any login or authentication system",
+    "Do not make any network requests for core app functionality",
+    "All data must be stored locally in browser storage",
+    "Use only the specified blue gradient colors: #42A5F5 (light blue) to #1565C0 (dark blue)",
+    "Remove all Caffeine AI branding from the interface",
+    "Ensure offline functionality works without Internet Identity"
+  ],
+  "nonGoals": [
+    "Integration with external health tracking services",
+    "Cloud data synchronization",
+    "Social features or sharing",
+    "Multi-user accounts or profiles",
+    "Backend user authentication",
+    "Real-time notifications via external services"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Water droplet icon in blue gradient with glossy finish (water-icon.dim_128x128.png)",
+      "Animated water glass illustration showing empty to full states in blue gradient (water-glass.dim_256x256.png)",
+      "Health benefit icons set: digestion, brain, immune system, skin, and energy in minimal blue style (health-icons-set.dim_512x512.png)",
+      "App logo featuring stylized water wave in blue gradient (app-logo.dim_256x256.png)"
+    ],
+    "edits": []
+  }
+}
